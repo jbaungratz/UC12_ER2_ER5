@@ -59,9 +59,9 @@ Console.WriteLine(@$"
             PessoaFisica metodoPf = new PessoaFisica();
 
             novaPf.nome = "José";
-            novaPf.dataNascimento = "14/11/1972";
+            novaPf.dataNascimento = "14/11/2014";
             novaPf.cpf = "01234567890";
-            novaPf.rendimento = 600.0f;
+            novaPf.rendimento = 8000.5f;
             novoEnd.logradouro = "Rua Cel Sarmento";
             novoEnd.numero = 1459;
             novoEnd.complemento = "apto 201";
@@ -71,7 +71,8 @@ Console.WriteLine(@$"
             Console.WriteLine(@$"
             Nome: {novaPf.nome}
             Endereco: {novaPf.endereco.logradouro}, {novaPf.endereco.numero}
-            Maior de idade: {metodoPf.ValidarDataNascimento(novaPf.dataNascimento)}
+            Maior de idade: {(metodoPf.ValidarDataNascimento(novaPf.dataNascimento) ? "Sim": "Não")}
+            Taxa de Imposto a ser paga é: {metodoPf.PagarImposto(novaPf.rendimento).ToString("C")} 
             ");
             Console.WriteLine($"Aperte 'Enter' para continuar");
             
@@ -87,7 +88,7 @@ Console.WriteLine(@$"
             //novaPj.cnpj = "01.001.001/0001-01";
             novaPj.cnpj = "01001001000101";
             novaPj.razaoSocial = "Razão Social Pj";
-            novaPj.rendimento = 8000;
+            novaPj.rendimento = 8000.5f;
 
             novoEndPj.logradouro = "Rua Cel Sarmento";
             novoEndPj.numero = 1459;
@@ -99,7 +100,9 @@ Console.WriteLine(@$"
             Nome: {novaPj.nome}
             Razão Social: {novaPj.razaoSocial}
             CNPJ: {novaPj.cnpj}
-            CNPJ é válido: {metodoPj.ValidarCnpj(novaPj.cnpj)}");
+            CNPJ é válido: {(metodoPj.ValidarCnpj(novaPj.cnpj) ? "Sim": "Não")}
+            Taxa de Imposto a ser paga é: {metodoPj.PagarImposto(novaPj.rendimento).ToString("C")}
+            ");
 
             Console.WriteLine($"Aperte 'Enter' para continuar");
             Console.ReadLine();

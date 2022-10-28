@@ -8,7 +8,7 @@ namespace UC12_ER2_ER5.Classes
 
         public Endereco ?endereco { get; set; }
 
-        public float ?rendimento { get; set; }
+        public float rendimento { get; set; }
         
         
 

@@ -12,7 +12,30 @@ namespace UC12_ER2_ER5.Classes
         
 
         public override float PagarImposto(float rendimento)
-        {
+        { 
+            /* Utilizar a seguite escala
+            Até 1500 (considerando 1500) - isento
+            de 1500 a 3500 (considerando 3500) - 2% de  imposto
+            de 3500 a 6000 (considerando 6000) - 3,5% de imposto
+            Acima de 6000 - 5% de imposto
+            */
+
+            if (rendimento <= 1500) 
+            {
+                return 0;
+            }
+            else if (rendimento > 1500 && rendimento <= 3500)
+            {
+                return (rendimento / 100) * 2;
+            }
+            else if (rendimento > 3500 && rendimento <= 6000)
+            {
+                return (rendimento / 100) * 3.5f;            
+            }
+            else {
+                return (rendimento / 100) * 5;
+            }
+
             throw new NotImplementedException();
         }
 
